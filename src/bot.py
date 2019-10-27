@@ -14,7 +14,7 @@ class bot:
     # currentPlayer is the move of the current player to check heuristic against
     # returns tuple (best_move, best_score) where best move is a tuple (x,y)
     def bestMove(self, board, depth, currentPlayer, alpha=None, beta=None):
-        if (depth == 0 or board.isFull()):
+        if (depth == 0 or board.isFull() or board.isWinner()):
             return (-1, -1), board.heuristic(currentPlayer)
         possible = []
         for y in range(0, 9):
